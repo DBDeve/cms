@@ -9,8 +9,6 @@
     require_once ROOT_PATH . '/src/core/footer.php';
 
 
-
-
     $myCms = new website();
 
 ?>
