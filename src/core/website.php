@@ -18,6 +18,8 @@
 
             $this->database = new database();
 
+            
+            
             $metadata = new metadata($this->database);
             $this->header = new header($this->database);
             $this->footer = new footer($this->database);
