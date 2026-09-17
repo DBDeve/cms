@@ -63,6 +63,11 @@
             return $tableDati[0];
         }
 
+
+        public function postMetadata(){
+            
+        }
+
     }
 
 ?>

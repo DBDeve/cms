@@ -1,24 +1,12 @@
 <?php
 
-
-$method = $_SERVER['REQUEST_METHOD'];
-
-$uri = '/admin/metadati';
-
-$routes = [];
-
-// REGISTRA LA ROUTE PER I METADATI
-$routes['GET']['/admin/metadati'] = function () {
-    include dirname(__DIR__) . '/views/admin/metadata-form.php';
-};
-
-// DISPATCH
-if (isset($routes[$method][$uri])) {
-    $routes[$method][$uri]();
-    exit;
-}
-
 define('ROOT_PATH', dirname(__DIR__));
+
+
+//PER AGGIUNGERE PEZZI DI ALTRE PAGINE WEB BASTA INCLUDE        
+//include dirname(__DIR__) . '/views/admin/metadata-form.php';
+        
+    
 
 require_once ROOT_PATH . '/src/core/metadata.php';
 require_once ROOT_PATH . '/src/core/website.php';
