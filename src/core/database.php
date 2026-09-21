@@ -4,7 +4,7 @@
 
     class database {
 
-        private PDO $pdo;
+        public PDO $pdo;
 
         public function __construct() {
 

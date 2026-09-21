@@ -1,6 +1,7 @@
 <?php
 
 define('ROOT_PATH', dirname(__DIR__));
+ob_start();
 
 
 //PER AGGIUNGERE PEZZI DI ALTRE PAGINE WEB BASTA INCLUDE        
