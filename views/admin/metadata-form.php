@@ -10,7 +10,7 @@
 // ];
 ?>
 
-<form class="form_meta" action="/admin/metadati/save" method="POST" enctype="multipart/form-data">
+<form class="form_meta" action="index.php?metadati=save" method="POST" enctype="multipart/form-data">
 
     <h2>Metadati della pagina</h2>
 
