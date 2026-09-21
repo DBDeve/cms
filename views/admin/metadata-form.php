@@ -10,7 +10,7 @@
 // ];
 ?>
 
-<form action="/admin/metadati/save" method="POST" enctype="multipart/form-data">
+<form class="form_meta" action="/admin/metadati/save" method="POST" enctype="multipart/form-data">
 
     <h2>Metadati della pagina</h2>
 
@@ -72,3 +72,9 @@
 
     <button type="submit">Salva metadati</button>
 </form>
+
+<style> 
+       
+    .form_meta { display: flex; flex-direction: column;}
+
+</style>

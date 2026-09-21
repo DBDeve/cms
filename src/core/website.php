@@ -29,6 +29,13 @@
                     <head> ". $metadata->getHeadTags() ." </head>
                     <body>
                         <h1>Benvenuto</h1>
+                        <a href='index.php?azione=mostra' style='padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;'>
+                            modifica metadati
+                        </a>";
+                        if (isset($_GET['azione']) && $_GET['azione']==="mostra") {
+                            include ROOT_PATH . "/views/admin/metadata-form.php";
+                        }
+            echo "
                     </body>
                 </html>
             ";
