@@ -26,13 +26,7 @@
 
             echo "<!DOCTYPE html>
                 <html lang='$metadata->lang'>
-                    <head>
-                        <meta charset='$metadata->charset'>
-                        <meta name='viewport' content='$metadata->viewport'>
-                        <title> $metadata->title </title>
-                        <meta name='description' content=' $metadata->description '>
-                        <meta name='robots' content='$metadata->robots_index, $metadata->robots_follow'>
-                    </head>
+                    <head> ". $metadata->getHeadTags() ." </head>
                     <body>
                         <h1>Benvenuto</h1>
                     </body>

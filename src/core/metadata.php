@@ -15,7 +15,6 @@
 
         public function __construct(database $database) {
 
-
             $metadata=$database->getTableData("metadata");
 
             $this->lang = $metadata["lang"];
@@ -33,6 +32,16 @@
 
             return $this->lang;
 
+        }
+
+        public function getHeadTags(){
+            return "
+                <meta charset='$this->charset'>
+                <meta name='viewport' content='$this->viewport'>
+                <title> $this->title </title>
+                <meta name='description' content=' $this->description '>
+                <meta name='robots' content='$this->robots_index, $this->robots_follow'>
+            ";
         }
 
 
