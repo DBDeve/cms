@@ -7,8 +7,7 @@
         public database $database;
 
         public metadata $metadata;
-        public header $header;
-        public footer $footer;
+        public body $body;
 
 
         public function __construct() {
@@ -21,13 +20,13 @@
             
             
             $metadata = new metadata($this->database);
-            $this->header = new header($this->database);
-            $this->footer = new footer($this->database);
+            $this->body = new body($this->database);
 
             echo "<!DOCTYPE html>
                 <html lang='$metadata->lang'>
                     <head> ". $metadata->getHeadTags() ." </head>
                     <body>
+                        ". $this->body->getHeader() ."
                         <h1>Benvenuto</h1>
                         <a href='index.php?metadata=form' style='padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;'>
                             modifica metadati

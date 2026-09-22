@@ -16,10 +16,10 @@
 
     <label for="meta_title">Titolo (meta title)</label>
     <input 
-        type="text" 
-        id="meta_title" 
-        name="meta_title" 
-        value="<?= $meta['title'] ?? '' ?>" 
+        type="text"
+        id="meta_title"
+        name="meta_title"
+        value="<?= $meta['title'] ?? '' ?>"
         required
     >
 

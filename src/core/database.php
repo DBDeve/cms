@@ -41,6 +41,23 @@
                     $this->pdo->exec($query);
                 }
 
+
+                $sql = "CREATE TABLE IF NOT EXISTS users (
+                        user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        email TEXT NOT NULL VARCHAR(50),
+                        name TEXT NOT NULL VARCHAR(50),
+                        surname TEXT NOT NULL VARCHAR(50),
+                        username TEXT NOT NULL VARCHAR(50),
+                        password TEXT NOT NULL,
+                        is_active TINYINT(1) DEFAULT 1,
+                        two_factor_secret VARCHAR(100) NULL,
+                        email_verified_at DATETIME NULL,
+                        password_reset_token VARCHAR(100) NULL,
+                        password_reset_expires DATETIME NULL,
+                    );
+                ";
+                $this->pdo->exec($sql);
+
                 
 
             } catch (PDOException $e) {
