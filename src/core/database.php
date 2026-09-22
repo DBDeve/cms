@@ -42,7 +42,7 @@
                 }
 
 
-                $sql = "CREATE TABLE IF NOT EXISTS users (
+                /*$sql = "CREATE TABLE IF NOT EXISTS users (
                         user_id INTEGER PRIMARY KEY AUTOINCREMENT,
                         email TEXT NOT NULL VARCHAR(50),
                         name TEXT NOT NULL VARCHAR(50),
@@ -56,7 +56,7 @@
                         password_reset_expires DATETIME NULL,
                     );
                 ";
-                $this->pdo->exec($sql);
+                $this->pdo->exec($sql);*/
 
                 
 

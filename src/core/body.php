@@ -2,8 +2,11 @@
   
     class body {
 
+        public database $database;
+        private string $content = '';
+
         public function __construct(database $database) {
-            
+            $this->database = $database;
         }
 
         public function getHeader(){
@@ -13,19 +16,35 @@
         }
 
         public function getContent(){
-            return 
-                '
-                    <main> 
-                        <h1>Benvenuto</h1>
-                        <a href="index.php?metadata=form" style="padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;">
-                            modifica metadati
-                        </a>
-                        
-                        
-                        
-                        
-                    </main>
-                ';
+
+            $html = '<main> ';
+
+            $html .= '<h1>Benvenuto</h1>
+                <a href="index.php?metadata=form" style="padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+                    modifica metadati
+                </a>'
+            ;
+
+            if (isset($_GET['metadata']) && $_GET['metadata']==="form") {
+                $this->content = ROOT_PATH . "/views/admin/metadata-form.php";
+                ob_start();              
+                include $this->content;  
+                $html .= ob_get_clean(); 
+            }
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Includi il file fuori da public che contiene la query SQL di salvataggio
+                $this->content =  ROOT_PATH . "/views/admin/save_metadata.php";
+                ob_start();              
+                include $this->content;  
+                $html .= ob_get_clean(); 
+            }
+
+            
+            $html .= '</main>';
+
+
+            return $html;
+
         }
 
         public function getFooter(){
