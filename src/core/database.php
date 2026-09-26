@@ -42,21 +42,20 @@
                 }
 
 
-                /*$sql = "CREATE TABLE IF NOT EXISTS users (
-                        user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        email TEXT NOT NULL VARCHAR(50),
-                        name TEXT NOT NULL VARCHAR(50),
-                        surname TEXT NOT NULL VARCHAR(50),
-                        username TEXT NOT NULL VARCHAR(50),
-                        password TEXT NOT NULL,
-                        is_active TINYINT(1) DEFAULT 1,
-                        two_factor_secret VARCHAR(100) NULL,
-                        email_verified_at DATETIME NULL,
-                        password_reset_token VARCHAR(100) NULL,
-                        password_reset_expires DATETIME NULL,
-                    );
-                ";
-                $this->pdo->exec($sql);*/
+                $sql = "CREATE TABLE IF NOT EXISTS users (
+                    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    email VARCHAR(50) NOT NULL,
+                    name VARCHAR(50) NOT NULL,
+                    surname VARCHAR(50) NOT NULL,
+                    username VARCHAR(50) NOT NULL,
+                    password TEXT NOT NULL,
+                    is_active TINYINT(1) DEFAULT 1,
+                    two_factor_secret VARCHAR(100) NULL,
+                    email_verified_at DATETIME NULL,
+                    password_reset_token VARCHAR(100) NULL,
+                    password_reset_expires DATETIME NULL
+                );";
+                $this->pdo->exec($sql);
 
                 
 
@@ -65,6 +64,21 @@
             }
             
             
+        }
+
+        public function existTableData(string $tableName){
+
+            $stmt = $this->pdo->query("SELECT COUNT(*) FROM $tableName");
+
+            $count = $stmt->fetchColumn();
+
+            if($count == 0){
+                return false;
+            }
+            else {
+                return true;
+            }
+
         }
 
         //funzione che prende tutti i dati di una tabella.

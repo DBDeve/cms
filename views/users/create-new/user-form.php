@@ -1,8 +1,17 @@
 
 
-<form class="form_user" action="index.php?users=form" method="POST" enctype="multipart/form-data">
+<form class="form_user" action="index.php?users=create_new" method="POST" enctype="multipart/form-data">
 
     <h2>Metadati della pagina</h2>
+
+    <label for="email"> email </label>
+    <input 
+        type="text"
+        id="email"
+        name="email"
+        value="<?= $user['email'] ?? '' ?>"
+        required
+    >
 
     <label for="username"> username </label>
     <input 
@@ -19,7 +28,7 @@
         name="password" 
         rows="4" 
         required
-    ><?= $meta['description'] ?? '' ?></textarea>
+    ><?= $meta['password'] ?? '' ?></textarea>
 
 
     <button type="submit">Salva utente</button>
