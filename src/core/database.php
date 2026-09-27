@@ -45,8 +45,6 @@
                 $sql = "CREATE TABLE IF NOT EXISTS users (
                     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
                     email VARCHAR(50) NOT NULL,
-                    name VARCHAR(50) NOT NULL,
-                    surname VARCHAR(50) NOT NULL,
                     username VARCHAR(50) NOT NULL,
                     password TEXT NOT NULL,
                     is_active TINYINT(1) DEFAULT 1,

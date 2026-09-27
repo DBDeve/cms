@@ -70,7 +70,7 @@
         ?>
     </select>
 
-    <button type="submit">Salva metadati</button>
+    <button type="submit" name="action" value="save_metadata">Salva metadati</button>
 </form>
 
 <style> 

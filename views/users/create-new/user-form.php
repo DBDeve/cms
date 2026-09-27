@@ -1,41 +1,37 @@
-
-
-<form class="form_user" action="index.php?users=create_new" method="POST" enctype="multipart/form-data">
+<form class="form_user" action="index.php?users=user_save" method="POST" enctype="multipart/form-data">
 
     <h2>Metadati della pagina</h2>
 
-    <label for="email"> email </label>
+    <label for="email">Email</label>
     <input 
-        type="text"
+        type="email"
         id="email"
         name="email"
-        value="<?= $user['email'] ?? '' ?>"
+        value="<?= htmlspecialchars($user['email'] ?? '') ?>"
         required
     >
 
-    <label for="username"> username </label>
+    <label for="username">Username</label>
     <input 
         type="text"
         id="username"
         name="username"
-        value="<?= $user['username'] ?? '' ?>"
+        value="<?= htmlspecialchars($user['username'] ?? '') ?>"
         required
     >
 
-    <label for="password"> password </label>
-    <textarea 
+    <label for="password">Password</label>
+    <!-- Corretto da textarea a input protetto -->
+    <input 
+        type="password"
         id="password" 
         name="password" 
-        rows="4" 
         required
-    ><?= $meta['password'] ?? '' ?></textarea>
+    >
 
-
-    <button type="submit">Salva utente</button>
+    <button type="submit" name="action" value="save_user">Salva utente</button>
 </form>
 
 <style> 
-       
-    .form_user { display: flex; flex-direction: column;}
-
+    .form_user { display: flex; flex-direction: column; gap: 10px; max-width: 300px; }
 </style>
