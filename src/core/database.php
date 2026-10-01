@@ -12,6 +12,12 @@
             // 1. Definiamo dove salvare il file .db (usiamo la costante ROOT_PATH definita in index.php)
             $db_file = ROOT_PATH . '/database/il_mio_database.db';
 
+
+            // CREARE UNA CLASSE cms E SPOSTARE LI IL CODICE CHE CREA LE TABELLE DEL DATABSE.
+            // USARE LA CLASSE website SOLO PER LA VISULIZZAZIONE DEL SITO WEB VISUALIZZABILE DA TUTTI.
+            // USARE CLASSE admin PER LA MODIFICA DEI DATI DEGLI UTENTI CHE POSSONO MODIFICARE IL SITO.
+            // LA CLASSE database FUNGE SOLO DA COLLEGAMENTO AL DATABASE, MA NON FA NULLA SE NON VEGONO RICHIAMATE LE SUE FUNZIONI.
+
             try {
                 // 2. Connessione: Se il file non esiste, PHP lo crea in questo preciso momento!
                 $this->pdo = new PDO("sqlite:" . $db_file);
