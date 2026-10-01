@@ -25,7 +25,7 @@ if (!empty($email) && !empty($username) && !empty($password)) {
 
         
         // Dopo il salvataggio, reindirizziamo l'utente alla home per evitare che reinvii i dati ricaricando la pagina
-        header("Location: index.php");
+        header("Location: /index.php");
         exit;
         
     } catch (PDOException $e) {
