@@ -10,8 +10,8 @@ ob_start();
 
 require_once ROOT_PATH . '/src/core/database.php';
 
-require_once ROOT_PATH . '/src/core/metadata.php';
-require_once ROOT_PATH . '/src/core/website.php';
-require_once ROOT_PATH . '/src/core/body.php';
+require_once ROOT_PATH . '/src/website/metadata.php';
+require_once ROOT_PATH . '/src/website/website.php';
+require_once ROOT_PATH . '/src/website/body.php';
 
 $myCms = new website();

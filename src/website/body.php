@@ -19,12 +19,6 @@
 
             $html = '<main> ';
 
-            $html .= '<h1>Benvenuto</h1>
-                <a href="index.php?metadata=form" style="padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;">
-                    modifica metadati
-                </a>'
-            ;
-
 
             if($this->database->existTableData("users") == false && ($_GET['users'] ?? '') !== 'create_new'){
                 echo "rendirizamento eseguito";
@@ -32,8 +26,6 @@
                 exit;
             } 
 
-
-            
             $html .= '</main>';
 
 
