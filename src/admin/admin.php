@@ -8,7 +8,7 @@
 
             $this->database = new database();
 
-            session_start();
+            session_start(); // LA SESSIONE DOVREBBE INIZIARE QUANDO SI EFFETTUA IL LOGIN
 
             if (isset($_SESSION['user_id'])) {
                 // 1. Se l'utente è loggato, mostra il benvenuto

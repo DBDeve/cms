@@ -30,7 +30,15 @@ if (!empty($email) && !empty($username) && !empty($password)) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // 4. Verifichi se l'utente esiste E se la password corrisponde
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user) {
+
+            if(password_verify($password, $user['password'])===false){
+                throw new Exception(" password non valida");
+            }
+
+            if($user['username'] != $username ){
+                throw new Exception(" username non valido");
+            }
             
             // LOGIN COMPLETATO CON SUCCESSO!
             // Ora puoi inviare i dati presi dal database alla sessione
@@ -42,14 +50,11 @@ if (!empty($email) && !empty($username) && !empty($password)) {
             // Reindirizzi l'utente alla pagina protetta
             //header("Location: admin/index.php");
             $_SESSION['message']= "login effetuato";
-            header("Location: index.php?users=login");
+            header("Location: index.php");
             exit ;
 
         } else {
-            // LOGIN FALLITO
-            $_SESSION['message']= "login fallito";
-            header("Location: index.php?users=login");
-            exit ;
+            throw new Exception("utente non valido. controlla la mail");
         }
 
         
@@ -59,6 +64,10 @@ if (!empty($email) && !empty($username) && !empty($password)) {
         header("Location: index.php?users=login");
         exit ;
       
+    } catch (Exception $loginError){
+        $_SESSION['message'] = "login fallito : " . $loginError->getMessage();
+        header("Location: index.php?users=login");
+        exit ;
     }
 
 
